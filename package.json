@@ -14,6 +14,7 @@
     "expo": "^52.0.7",
     "expo-status-bar": "~2.0.0",
     "nativewind": "latest",
+    "pinar": "^0.12.2",
     "react": "18.3.1",
     "react-native": "0.76.2",
     "react-native-reanimated": "~3.16.1",
