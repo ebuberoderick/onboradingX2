@@ -8,7 +8,7 @@ export default function App() {
   return (
     <View className='flex-1'>
       <StatusBar style="auto" />
-      <Carousel showsControls={false} showsDots={false}>
+      <Carousel onIndexChanged={(i) => console.log(i)} showsControls={false} dotStyle={{ width: 8, height: 8, borderRadius: 25, backgroundColor: "#e3e3e3", marginLeft: 3 }}>
         <View className='flex-1 justify-center items-center dark:bg-black bg-white' key="1">
           <View className='gap-5'>
             <View className='h-96 w-96 rounded-full bg-slate-100 dark:bg-slate-700' />
@@ -37,7 +37,7 @@ export default function App() {
           </View>
         </View>
       </Carousel>
-      <View className='absolute flex-row justify-between items-center bottom-12 w-screen py-3 px-12'>
+      {/* <View className='absolute flex-row justify-between items-center bottom-12 w-screen py-3 px-12'>
         <TouchableOpacity>
           <Text>Skip</Text>
         </TouchableOpacity>
@@ -49,35 +49,8 @@ export default function App() {
         <TouchableOpacity>
           <Text>Next</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 }
 
-
-const styles = StyleSheet.create({
-  slide1: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#a3c9a8"
-  },
-  slide2: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#84b59f"
-  },
-  slide3: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#69a297"
-  },
-  text: {
-    color: "#1f2d3d",
-    opacity: 0.7,
-    fontSize: 48,
-    fontWeight: "bold"
-  }
-});
