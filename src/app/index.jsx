@@ -1,9 +1,10 @@
+import "../../global.css"
 import { ScreenContent } from 'components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
 import Carousel from "pinar";
-import './global.css';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useState } from 'react';
+import { Link } from 'expo-router';
 
 export default function App() {
 
@@ -12,7 +13,6 @@ export default function App() {
   const switchIndex = (index) => {
     updateindex(index)
   }
-
 
   return (
     <View className='flex-1'>
@@ -47,17 +47,26 @@ export default function App() {
         </View>
       </Carousel>
       <View className='absolute flex-row justify-between items-center bottom-12 w-screen py-3 px-12'>
-        <TouchableOpacity>
+        <Link href="/login">
           <Text>Skip</Text>
-        </TouchableOpacity>
+        </Link>
         <View className='flex-row gap-2'>
           <View className={`h-2 rounded-full ${activeIndex === 0 ? "bg-slate-900" : "bg-slate-400"}`} style={{ width: activeIndex === 0 ? 20 : 8 }} />
           <View className={`h-2 rounded-full ${activeIndex === 1 ? "bg-slate-900" : "bg-slate-400"}`} style={{ width: activeIndex === 1 ? 20 : 8 }} />
           <View className={`h-2 rounded-full ${activeIndex === 2 ? "bg-slate-900" : "bg-slate-400"}`} style={{ width: activeIndex === 2 ? 20 : 8 }} />
         </View>
-        <TouchableOpacity>
-          <Text>Next</Text>
-        </TouchableOpacity>
+        {
+          activeIndex > 1 ? (
+            <Link href="/login" >
+              <Text>Get Started</Text>
+            </Link>
+          ) : (
+            <TouchableOpacity>
+              <Text>Next</Text>
+            </TouchableOpacity>
+          )
+        }
+
       </View>
     </View>
   );
