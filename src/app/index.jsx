@@ -1,4 +1,3 @@
-import "../../global.css"
 import { ScreenContent } from 'components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
 import Carousel from "pinar";
@@ -47,7 +46,7 @@ export default function App() {
         </View>
       </Carousel>
       <View className='absolute flex-row justify-between items-center bottom-12 w-screen py-3 px-12'>
-        <Link href="/login">
+        <Link replace href="/login">
           <Text>Skip</Text>
         </Link>
         <View className='flex-row gap-2'>
@@ -57,7 +56,7 @@ export default function App() {
         </View>
         {
           activeIndex > 1 ? (
-            <Link href="/login" >
+            <Link replace href="/login" >
               <Text>Get Started</Text>
             </Link>
           ) : (
