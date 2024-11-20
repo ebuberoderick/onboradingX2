@@ -16,7 +16,6 @@ export default function App() {
 
     return (
         <View className='flex-1'>
-            <StatusBar style="auto" />
             <Carousel ref={carouselRef} onIndexChanged={(i) => switchIndex(i.index)} showsControls={false} showsDots={false} activeDotStyle={{ width: 20, height: 10, borderRadius: 25, backgroundColor: "#000", marginLeft: 3 }} dotStyle={{ width: 10, height: 10, borderRadius: 25, backgroundColor: "#e3e3c1", marginLeft: 3 }}>
                 <View className='flex-1 justify-center items-center dark:bg-black bg-white' key="1">
                     <View className='gap-5'>
@@ -47,7 +46,7 @@ export default function App() {
                 </View>
             </Carousel>
             <View className='absolute flex-row justify-between items-center bottom-12 w-screen py-3 px-12'>
-                <Link replace href="/login?first=ebube">
+                <Link replace href="/login?first=ebube&last=roderick">
                     <Text>Skip</Text>
                 </Link>
                 <View className='flex-row gap-2'>
@@ -57,7 +56,7 @@ export default function App() {
                 </View>
                 {
                     activeIndex > 1 ? (
-                        <Link replace href="/login?first=ebube" >
+                        <Link replace href="/login?first=ebube&last=roderick" >
                             <Text>Get Started</Text>
                         </Link>
                     ) : (
