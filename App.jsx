@@ -3,12 +3,21 @@ import { StatusBar } from 'expo-status-bar';
 import Carousel from "pinar";
 import './global.css';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useState } from 'react';
 
 export default function App() {
+
+  const [activeIndex, updateindex] = useState(0)
+
+  const switchIndex = (index) => {
+    updateindex(index)
+  }
+
+
   return (
     <View className='flex-1'>
       <StatusBar style="auto" />
-      <Carousel onIndexChanged={(i) => console.log(i)} showsControls={false} activeDotStyle={{ width: 20, height: 10, borderRadius: 25, backgroundColor: "#000", marginLeft: 3}} dotStyle={{ width: 10, height: 10, borderRadius: 25, backgroundColor: "#e3e3c1", marginLeft: 3 }}>
+      <Carousel onIndexChanged={(i) => switchIndex(i.index)} showsControls={false} showsDots={false} activeDotStyle={{ width: 20, height: 10, borderRadius: 25, backgroundColor: "#000", marginLeft: 3 }} dotStyle={{ width: 10, height: 10, borderRadius: 25, backgroundColor: "#e3e3c1", marginLeft: 3 }}>
         <View className='flex-1 justify-center items-center dark:bg-black bg-white' key="1">
           <View className='gap-5'>
             <View className='h-96 w-96 rounded-full bg-slate-100 dark:bg-slate-700' />
@@ -37,19 +46,19 @@ export default function App() {
           </View>
         </View>
       </Carousel>
-      {/* <View className='absolute flex-row justify-between items-center bottom-12 w-screen py-3 px-12'>
+      <View className='absolute flex-row justify-between items-center bottom-12 w-screen py-3 px-12'>
         <TouchableOpacity>
           <Text>Skip</Text>
         </TouchableOpacity>
         <View className='flex-row gap-2'>
-          <View className='w-2 h-2 rounded-full bg-slate-900' />
-          <View className='w-2 h-2 rounded-full bg-slate-400' />
-          <View className='w-2 h-2 rounded-full bg-slate-400' />
+          <View className={`h-2 rounded-full ${activeIndex === 0 ? "bg-slate-900" : "bg-slate-400"}`} style={{ width: activeIndex === 0 ? 20 : 8 }} />
+          <View className={`h-2 rounded-full ${activeIndex === 1 ? "bg-slate-900" : "bg-slate-400"}`} style={{ width: activeIndex === 1 ? 20 : 8 }} />
+          <View className={`h-2 rounded-full ${activeIndex === 2 ? "bg-slate-900" : "bg-slate-400"}`} style={{ width: activeIndex === 2 ? 20 : 8 }} />
         </View>
         <TouchableOpacity>
           <Text>Next</Text>
         </TouchableOpacity>
-      </View> */}
+      </View>
     </View>
   );
 }
